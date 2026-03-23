@@ -787,7 +787,7 @@ flowchart LR
 
 ### Suite logique du prochain chapitre
 
-Le prochain cours peut porter sur :
+Le prochain cours va porter sur :
 
 * **les ressources CloudFormation plus avancées**
 * **VPC + Subnet + Security Group**
