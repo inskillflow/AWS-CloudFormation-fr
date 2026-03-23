@@ -56,6 +56,14 @@ flowchart LR
     E --> F["Déploiement CloudFormation"]
 ```
 
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Le CI/CD, c'est comme une **chaîne de montage automatisée** dans une usine. Le développeur pousse du code (il dépose la pièce sur le tapis roulant), et la machine se charge de tester, valider et déployer toute seule. Plus besoin de porter chaque pièce à la main d'un poste à l'autre : tout est automatisé, contrôlé et reproductible. Si une pièce est défectueuse, la chaîne s'arrête avant qu'elle n'arrive en production.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -250,6 +258,14 @@ flowchart TD
     B --> C["Validation / approval"]
     C --> D["CloudFormation: Execute Change Set"]
 ```
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+CodePipeline, c'est comme un **tapis roulant d'usine**. Le template CloudFormation est posé sur le tapis et passe automatiquement par chaque poste : d'abord on le récupère (Source), puis on le vérifie (Validation), et enfin on le met en place (Déploiement). Chaque étape est un poste de travail sur le tapis roulant, et si une étape échoue, la pièce n'avance pas.
+
+</details>
 
 </details>
 
@@ -490,6 +506,16 @@ AWS recommande des environnements distincts, idéalement des comptes séparés, 
 ### 5. Mettre des secrets dans le dépôt ou dans le template
 
 AWS déconseille explicitement d’embarquer des credentials dans les templates CloudFormation. ([AWS Documentation][7])
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- **Toujours** mettre le template dans Git (versionné, traçable).
+- **Toujours** faire un change set avant de déployer en prod (pour voir les changements avant de les appliquer).
+- **Toujours** séparer les environnements (dev, test, prod ne doivent jamais se mélanger).
+
+</details>
 
 </details>
 

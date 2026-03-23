@@ -60,6 +60,16 @@ Une DB instance RDS sert à héberger une base relationnelle pour :
 
 Dans CloudFormation, cette instance est souvent reliée à un **DB subnet group**, à un **VPC security group**, et à des paramètres comme le moteur, la classe d’instance, le stockage et les identifiants. AWS documente ces propriétés dans `AWS::RDS::DBInstance`. ([AWS Documentation][1])
 
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Amazon RDS, c'est comme **louer un appartement meublé au lieu de construire sa propre maison**. Quand vous louez un appartement, le propriétaire s'occupe de la plomberie, de l'électricité et de l'entretien général — vous, vous vous concentrez sur y habiter. Avec RDS, AWS gère les mises à jour du moteur, les sauvegardes, la réplication — vous, vous vous concentrez sur votre application et vos données. Vous choisissez la taille de l'appartement (la classe d'instance) et le quartier (le VPC), mais vous ne touchez jamais à la tuyauterie.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -198,6 +208,18 @@ flowchart LR
     D --> E
 ```
 
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Un **DB subnet group** dit à RDS « tu as le droit de vivre dans ces sous-réseaux du VPC »
+- Il faut obligatoirement **au moins 2 subnets dans 2 zones différentes** pour que RDS puisse fonctionner correctement
+- En pratique, on met la base dans des **subnets privés** pour la protéger — comme on mettrait un coffre-fort dans une pièce fermée plutôt que dans le hall d'entrée
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -247,6 +269,16 @@ flowchart LR
     B --> C["Security Group DB"]
     C --> D["RDS MySQL 3306"]
 ```
+
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Le Security Group de la base de données, c'est comme une **porte blindée avec un interphone**. Seul le serveur applicatif (qui est sur la liste autorisée) peut sonner et entrer. Tout le reste du monde est bloqué dehors. On ne donne pas l'accès à la base à n'importe qui : on autorise uniquement le serveur app sur le bon port (ex. : 3306 pour MySQL), et c'est tout.
+
+</details>
 
 </details>
 
@@ -367,6 +399,18 @@ Pour une base de données, `DeletionPolicy: Snapshot` permet de prendre une sauv
 ### `DeletionPolicy` et suppression prudente
 
 Pour un environnement de test jetable, on peut parfois préférer une suppression simple. Pour une base contenant des données importantes, une stratégie de snapshot est généralement beaucoup plus prudente. CloudFormation fournit le mécanisme, mais c’est à l’architecte de choisir la politique adaptée au contexte. ([AWS Documentation][5])
+
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Sans `DeletionPolicy`, supprimer la stack = supprimer la base et toutes ses données, sans retour possible
+- Avec `DeletionPolicy: Snapshot`, CloudFormation prend une **photo de sauvegarde** de la base avant de la supprimer — comme faire une copie de vos documents avant de vider un classeur
+- Pour une base de test jetable, la suppression simple peut suffire ; pour une base de production, le snapshot est presque toujours le bon choix
+
+</details>
 
 </details>
 

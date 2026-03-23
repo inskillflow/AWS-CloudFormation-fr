@@ -100,6 +100,16 @@ flowchart TD
 
 AWS recommande de ne pas stocker de credentials de longue durée dans les workloads. Pour les applications qui tournent sur des instances EC2, AWS documente explicitement l’usage d’un rôle IAM attribué à l’instance afin de fournir des credentials temporaires aux applications via les mécanismes AWS prévus à cet effet. ([AWS Documentation][1])
 
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Un **IAM Role**, c'est comme un **badge d'accès temporaire** dans un immeuble de bureaux. Quand un visiteur arrive, on ne lui donne pas les clés permanentes du bâtiment : on lui prête un badge qui lui ouvre certaines portes pendant une durée limitée. De la même façon, un rôle IAM donne à une instance EC2 des permissions temporaires pour accéder à certains services AWS, sans jamais stocker de mot de passe permanent sur la machine.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -225,6 +235,18 @@ MonInstanceProfile:
       - !Ref MonRoleEC2
 ```
 
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Un **Instance Profile** est un « porte-badge » : c'est l'objet qui permet d'attacher un rôle IAM à une instance EC2
+- On ne branche pas le rôle directement sur l'instance — on passe toujours par l'Instance Profile
+- Dans CloudFormation, c'est une ressource séparée (`AWS::IAM::InstanceProfile`) qui référence le rôle
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -327,6 +349,16 @@ Si une instance doit seulement lire un bucket S3 spécifique, il vaut mieux :
 * éviter `s3:*` sur `*`
 
 Cette logique suit directement la bonne pratique AWS de moindre privilège. ([AWS Documentation][1])
+
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Le moindre privilège, c'est comme **donner la clé de la cuisine à un cuisinier, pas la clé de tout l'immeuble**. Si quelqu'un a besoin de préparer le repas, on lui donne accès à la cuisine et au frigo — pas au coffre-fort du directeur, ni au parking, ni aux bureaux. En IAM, c'est pareil : si une instance doit lire un seul bucket S3, on autorise uniquement la lecture de ce bucket, et rien d'autre.
+
+</details>
 
 </details>
 
@@ -492,6 +524,18 @@ flowchart TD
     C --> E["Application sur EC2"]
     E --> F["Accès lecture au bucket S3"]
 ```
+
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- On crée un **rôle IAM** (le badge), un **Instance Profile** (le porte-badge), puis on attache le tout à l'**instance EC2**
+- La **policy** du rôle définit exactement ce que l'instance a le droit de faire (ex. : lire un bucket S3 précis)
+- Les **Outputs** permettent de voir le nom et l'ARN du rôle après déploiement, sans aller fouiller dans la console AWS
+
+</details>
 
 </details>
 

@@ -72,6 +72,16 @@ Parce que l’infrastructure n’est plus créée “à la main” dans la conso
 
 CloudFormation fait partie des outils AWS natifs pour cette approche. ([docs.aws.amazon.com][1])
 
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+CloudFormation, c'est comme une **recette de cuisine**. Au lieu de cuisiner à l'improvisation (créer des ressources à la main dans la console), vous écrivez une recette complète : les ingrédients (ressources), les quantités (configurations), l'ordre de préparation (dépendances). Ensuite, vous donnez la recette au chef (CloudFormation) et il prépare le plat exactement comme décrit. Si vous voulez refaire le même plat demain, vous réutilisez la même recette et vous obtenez le même résultat à chaque fois.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -196,6 +206,19 @@ flowchart TD
 | Change set | L’aperçu des changements                  |
 | Drift      | L’écart entre le template et la réalité   |
 | StackSet   | Déploiement multi-comptes / multi-régions |
+
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Un **template**, c'est votre liste d'achats — ce que vous voulez créer
+- Une **stack**, c'est le panier rempli — ce qui a été réellement créé
+- Un **change set**, c'est un aperçu avant de passer à la caisse — vous vérifiez avant de valider
+- Le **drift**, c'est quand quelqu'un a touché à votre panier sans vous le dire
+
+</details>
 
 </details>
 
@@ -335,6 +358,16 @@ flowchart LR
 ### Point d’attention pour S3
 
 AWS rappelle qu’un bucket S3 ne peut être supprimé que s’il est vide. Si le bucket contient des objets, la suppression échoue. ([docs.aws.amazon.com][16])
+
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+`DeletionPolicy`, c'est comme une **assurance habitation**. Sans assurance (sans `DeletionPolicy`), si vous démolissez la maison (supprimez la stack), tout disparaît. Avec `DeletionPolicy: Retain`, c'est comme dire : « même si je quitte le quartier, je garde le coffre-fort ». La stack disparaît, mais la ressource précieuse (comme un bucket avec vos données) reste intacte.
+
+</details>
 
 </details>
 
@@ -507,6 +540,18 @@ flowchart LR
     C["Resources"] --> D["!GetAtt"]
     E["Texte dynamique"] --> F["!Sub"]
 ```
+
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- `!Ref` = « donne-moi la valeur de ce truc » — comme demander le numéro de téléphone de quelqu'un dans votre carnet de contacts
+- `!Sub` = « construis-moi une phrase avec des blancs à remplir » — comme un modèle de lettre avec des `[NOM]` à remplacer
+- `!GetAtt` = « donne-moi un détail précis sur cette ressource » — comme demander non pas le numéro, mais spécifiquement l'adresse email
+
+</details>
 
 </details>
 

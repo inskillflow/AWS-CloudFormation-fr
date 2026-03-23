@@ -72,6 +72,16 @@ Pense à un VPC comme à un immeuble vide.
 * L’**Internet Gateway** = la porte vers l’extérieur
 * Le **Security Group** = le gardien qui décide qui peut entrer
 
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Imagine que tu construis un **quartier résidentiel fermé**. Le **VPC**, c'est le terrain clôturé du quartier — tout ce qui se passe dedans est isolé de l'extérieur. Les **subnets**, ce sont les différentes rues ou zones du quartier : une zone commerciale (public) et une zone résidentielle calme (privé). L'**Internet Gateway**, c'est le portail principal qui donne sur la route publique. Et la **route table**, ce sont les panneaux qui indiquent « pour sortir, passez par le portail ». Sans panneau, même si le portail existe, personne ne sait comment sortir.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -184,6 +194,18 @@ AWS précise qu’un subnet public a généralement une route pour tout trafic i
 
 La ressource `AWS::EC2::SubnetRouteTableAssociation` associe un subnet à une route table. AWS indique que le subnet et la route table doivent être dans le même VPC. ([docs.aws.amazon.com][7])
 
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Une **route table**, c'est un GPS pour le trafic réseau — elle dit « pour aller sur Internet, passe par l'Internet Gateway »
+- L'**Internet Gateway**, c'est la porte de sortie de votre réseau vers le monde extérieur
+- Sans route table qui pointe vers l'Internet Gateway, votre subnet est comme une pièce sans porte : isolée
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -246,6 +268,16 @@ Un Security Group ne “rend pas public” un serveur à lui seul. Il faut aussi
 * que le Security Group ouvre le port voulu
 
 AWS relie bien ces éléments dans sa documentation VPC et Security Groups. ([docs.aws.amazon.com][4])
+
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Un Security Group, c'est comme le **videur d'une boîte de nuit**. Il a une liste précise : « TCP 22 depuis telle IP ? OK, tu entres. TCP 80 depuis n'importe où ? OK aussi. Tout le reste ? Dehors. » Par défaut, personne n'entre (aucun trafic entrant autorisé). Vous devez explicitement dire au videur qui a le droit de passer et par quelle porte (port). Et attention : même avec le meilleur videur du monde, si la boîte de nuit est dans une ruelle sans accès (subnet sans route Internet), personne ne pourra y arriver.
+
+</details>
 
 </details>
 
@@ -367,6 +399,18 @@ flowchart TD
 7. une IP publique sur la ressource si elle doit être joignable depuis Internet
 
 Les conditions 3, 4 et 7 sont bien précisées par la documentation VPC d’AWS sur l’accès Internet. ([docs.aws.amazon.com][4])
+
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Pour qu'une machine soit accessible sur Internet, il faut **7 ingrédients** : VPC, subnet, Internet Gateway, attachement au VPC, route vers l'IGW, association subnet-route table, et une IP publique
+- Si un seul maillon manque, ça ne marche pas — c'est comme une chaîne : un seul maillon cassé et tout lâche
+- En CloudFormation, chaque maillon est une ressource distincte qu'il faut déclarer explicitement
+
+</details>
 
 </details>
 

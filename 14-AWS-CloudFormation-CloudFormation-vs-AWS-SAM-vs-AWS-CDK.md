@@ -91,6 +91,17 @@ AWS documente aussi les bonnes pratiques de réutilisation des templates via `Pa
 
 Quand les templates deviennent volumineux, la lisibilité et la réutilisation peuvent devenir plus difficiles. AWS rappelle d’ailleurs des quotas comme la limite de **500 ressources déclarées par template**, et recommande alors de séparer l’infrastructure en plusieurs templates, notamment via des nested stacks. ([AWS Documentation][3])
 
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Imaginez trois façons de construire un meuble :
+- **CloudFormation** = construire un meuble en lisant le plan IKEA pas à pas. Vous voyez chaque vis, chaque planche, tout est explicite.
+- **SAM** = construire un meuble avec un kit pré-assemblé pour le serverless. Certaines pièces sont déjà montées, vous allez plus vite sur les cas courants.
+- **CDK** = dessiner le plan avec un vrai logiciel d'architecte, puis le logiciel génère le plan IKEA pour vous. Plus puissant, mais il faut savoir coder.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -215,6 +226,16 @@ flowchart TD
 | AWS CDK        | Code dans un langage généraliste | Développeurs, plateformes internes, équipes qui veulent abstractions et réutilisation | Infra complexe ou industrialisée |
 
 Cette lecture est cohérente avec la manière dont AWS présente chacun de ces outils dans sa documentation officielle. CloudFormation est présenté comme le socle déclaratif, SAM comme le framework serverless, et CDK comme le framework de développement avec constructs et synthèse CloudFormation. ([AWS Documentation][1])
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- **CloudFormation** = YAML brut, tout à la main. Vous écrivez chaque ressource vous-même.
+- **SAM** = raccourci pour Lambda / API Gateway. Moins de YAML, plus rapide pour le serverless.
+- **CDK** = coder en Python / TypeScript au lieu de YAML. L'infra devient un vrai programme.
+
+</details>
 
 </details>
 
@@ -456,6 +477,17 @@ flowchart TD
     C["CDK"] --> A
 ```
 
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- **Débutant ?** Commencez par CloudFormation. C'est la base, et tout le reste s'appuie dessus.
+- **Projet serverless ?** SAM. C'est un raccourci taillé pour Lambda et API Gateway.
+- **Grande équipe de développeurs ?** CDK. Vous codez l'infra dans un vrai langage (Python, TypeScript…).
+
+</details>
+
+</details>
 
 [1]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html?utm_source=chatgpt.com "What is CloudFormation?"
 [2]: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html?utm_source=chatgpt.com "CloudFormation best practices"

@@ -149,6 +149,16 @@ flowchart LR
     C --> D["Valeur = t2.micro"]
 ```
 
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Imaginez le **menu d'un restaurant qui change selon le jour**. Le lundi, le plat du jour est une soupe ; le mardi, c'est une salade ; le vendredi, c'est un steak. Vous ne choisissez pas le plat du jour vous-même, c'est le restaurant qui le décide en fonction du jour. Un **Mapping** fonctionne exactement pareil : vous dites « je suis en dev », et le template décide tout seul quel type d'instance utiliser, sans vous demander de faire le calcul.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -215,6 +225,18 @@ flowchart TD
     B -->|"Oui"| C["Créer la ressource / afficher l'output"]
     B -->|"Non"| D["Ignorer la ressource / masquer l'output"]
 ```
+
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Une **condition** est une question oui/non posée au moment du déploiement (ex. : « est-ce qu'on est en production ? »)
+- Si la réponse est **oui**, CloudFormation crée la ressource ou affiche l'output concerné
+- Si la réponse est **non**, il l'ignore complètement — comme si la ligne n'existait pas dans le template
+
+</details>
 
 </details>
 
@@ -359,6 +381,16 @@ flowchart LR
     A --> F["AWS::URLSuffix"]
     A --> G["AWS::NoValue"]
 ```
+
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Les pseudo parameters, c'est comme un **GPS intégré dans votre voiture qui sait déjà où vous êtes**. Vous n'avez pas besoin de taper votre position manuellement : le GPS connaît votre pays, votre ville, votre rue. De la même façon, `AWS::Region` sait dans quelle région vous déployez, `AWS::AccountId` connaît votre compte, et `AWS::StackName` connaît le nom de votre stack. Vous n'avez rien à configurer, ces informations sont disponibles automatiquement.
+
+</details>
 
 </details>
 
@@ -562,6 +594,18 @@ flowchart TD
     D --> H["Output conditionnel"]
     F --> D
 ```
+
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- L'utilisateur choisit juste **un environnement** (dev, test ou prod) — le template fait tout le reste
+- Le **Mapping** décide automatiquement de la taille du serveur selon l'environnement choisi
+- La **Condition** décide si un bucket de logs est créé (uniquement en prod), et les **pseudo parameters** génèrent un nom de bucket unique sans rien coder en dur
+
+</details>
 
 </details>
 

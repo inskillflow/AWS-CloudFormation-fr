@@ -55,6 +55,16 @@ Un bucket peut servir à :
 
 AWS rappelle qu’avant de pouvoir envoyer des données dans S3, il faut d’abord créer un bucket dans une région AWS. ([AWS Documentation][2])
 
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+Un **bucket S3**, c'est comme un **coffre-fort numérique** ou un **grand classeur** dans lequel vous rangez tous vos fichiers. Imaginez un classeur à tiroirs dans un bureau : chaque tiroir peut contenir des documents, des photos, des archives. Le classeur lui-même, c'est le bucket. Les documents à l'intérieur, ce sont les objets. Vous pouvez avoir plusieurs classeurs (buckets) pour différents projets, et chacun a son propre nom unique.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -219,6 +229,18 @@ flowchart TD
     D --> E
 ```
 
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Le **versioning**, c'est comme un historique automatique : chaque fois que vous modifiez un fichier, l'ancienne version est conservée
+- Si vous écrasez un fichier par erreur, vous pouvez revenir à une version précédente
+- C'est une ligne de configuration dans le template, et ça s'active à chaque déploiement automatiquement
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -359,6 +381,16 @@ AWS distingue `DeletionPolicy` et `UpdateReplacePolicy`. `DeletionPolicy` s’ap
 
 Pour un bucket important, on pense souvent d’abord à `DeletionPolicy`, puis éventuellement à `UpdateReplacePolicy` selon le scénario. ([AWS Documentation][8])
 
+---
+
+<details>
+<summary>Analogie simple pour comprendre</summary>
+<br/>
+
+`DeletionPolicy`, c'est comme mettre un **cadenas sur votre coffre-fort**. Sans cadenas (sans `DeletionPolicy`), si quelqu'un supprime la stack, le coffre-fort et tout son contenu disparaissent. Avec `Retain`, c'est comme dire « même si on démolit le bureau, le coffre-fort reste en place ». Vous protégez vos données contre une suppression accidentelle.
+
+</details>
+
 </details>
 
 <p align="right"><a href="#top">↑ Back to top</a></p>
@@ -410,6 +442,18 @@ Dans un cours débutant, on montre souvent la bucket policy comme mécanisme de 
 * `AWS::S3::BucketPolicy` = les permissions attachées au bucket
 
 AWS illustre cette séparation dans sa documentation CloudFormation et S3. ([AWS Documentation][9])
+
+---
+
+<details>
+<summary>En résumé très simple</summary>
+<br/>
+
+- Une **bucket policy** définit **qui a le droit** de lire, écrire ou supprimer des fichiers dans le bucket — c'est comme une liste de personnes autorisées à ouvrir le classeur
+- Le bucket et sa policy sont **deux ressources séparées** dans CloudFormation : l'une crée le classeur, l'autre définit les règles d'accès
+- Attention à ne pas donner l'accès à tout le monde par erreur — c'est comme laisser la porte du bureau grande ouverte
+
+</details>
 
 </details>
 
