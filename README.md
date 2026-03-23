@@ -1,8 +1,44 @@
-# AWS-CloudFormation-fr
+<a id="top"></a>
 
-# Série de cours — AWS CloudFormation
+# AWS CloudFormation — Série complète de cours
 
-## Présentation
+## Table of Contents
+
+| #  | Section |
+|----|---------|
+| 1  | [Présentation de la série](#section-1) |
+| 2  | [Objectifs de la série](#section-2) |
+| 3  | [Public cible](#section-3) |
+| 4  | [Prérequis](#section-4) |
+| 5  | [Structure complète de la série](#section-5) |
+| 5a | &nbsp;&nbsp;&nbsp;↳ [Chapitre 1 — Introduction à AWS CloudFormation et concepts fondamentaux](#section-5a) |
+| 5b | &nbsp;&nbsp;&nbsp;↳ [Chapitre 2 — Réseau de base avec VPC, Subnet, Internet Gateway et Security Group](#section-5b) |
+| 5c | &nbsp;&nbsp;&nbsp;↳ [Chapitre 3 — Déployer une instance EC2 avec CloudFormation](#section-5c) |
+| 5d | &nbsp;&nbsp;&nbsp;↳ [Chapitre 4 — Parameters, Outputs et fonctions intrinsèques](#section-5d) |
+| 5e | &nbsp;&nbsp;&nbsp;↳ [Chapitre 5 — Conditions, Mappings et pseudo parameters](#section-5e) |
+| 5f | &nbsp;&nbsp;&nbsp;↳ [Chapitre 6 — S3 avec CloudFormation : buckets, versioning, outputs et protections](#section-5f) |
+| 5g | &nbsp;&nbsp;&nbsp;↳ [Chapitre 7 — IAM Roles, Instance Profiles et permissions de base](#section-5g) |
+| 5h | &nbsp;&nbsp;&nbsp;↳ [Chapitre 8 — Déployer une base de données RDS avec CloudFormation](#section-5h) |
+| 5i | &nbsp;&nbsp;&nbsp;↳ [Chapitre 9 — Load Balancer et Auto Scaling](#section-5i) |
+| 5j | &nbsp;&nbsp;&nbsp;↳ [Chapitre 10 — Structurer les projets CloudFormation : organisation, modularité et nested stacks](#section-5j) |
+| 5k | &nbsp;&nbsp;&nbsp;↳ [Chapitre 11 — Change Sets, Drift Detection et Stack Policies](#section-5k) |
+| 5l | &nbsp;&nbsp;&nbsp;↳ [Chapitre 12 — Bonnes pratiques, validation, debugging et troubleshooting](#section-5l) |
+| 5m | &nbsp;&nbsp;&nbsp;↳ [Chapitre 13 — Intégrer CloudFormation dans une logique CI/CD](#section-5m) |
+| 5n | &nbsp;&nbsp;&nbsp;↳ [Chapitre 14 — CloudFormation vs AWS SAM vs AWS CDK](#section-5n) |
+| 5o | &nbsp;&nbsp;&nbsp;↳ [Chapitre 15 — Projet final complet](#section-5o) |
+| 6  | [Progression pédagogique recommandée](#section-6) |
+| 7  | [Résultat attendu à la fin de la série](#section-7) |
+| 8  | [Format recommandé pour chaque chapitre](#section-8) |
+| 9  | [Conclusion](#section-9) |
+
+---
+
+<a id="section-1"></a>
+
+<details>
+<summary>1 - Présentation de la série</summary>
+
+<br/>
 
 Cette série de cours a pour objectif de vous apprendre à utiliser **AWS CloudFormation** de manière progressive, claire et professionnelle, en partant des bases jusqu’à la construction d’infrastructures complètes sur AWS.
 
@@ -12,13 +48,22 @@ L’approche suivie dans cette série repose sur une logique simple :
 * apprendre la structure des templates YAML
 * déployer des ressources AWS étape par étape
 * organiser des projets CloudFormation propres
-* adopter les bonnes pratiques d’infrastructure as code
+* adopter les bonnes pratiques d’Infrastructure as Code
 
 Cette série est pensée pour des débutants motivés, mais elle monte progressivement vers un niveau intermédiaire solide, avec une logique très pratique.
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Objectifs de la série
+<a id="section-2"></a>
+
+<details>
+<summary>2 - Objectifs de la série</summary>
+
+<br/>
 
 À la fin de cette série, l’apprenant sera capable de :
 
@@ -31,9 +76,18 @@ Cette série est pensée pour des débutants motivés, mais elle monte progressi
 * éviter les erreurs fréquentes
 * intégrer CloudFormation dans une logique DevOps et CI/CD
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Public cible
+<a id="section-3"></a>
+
+<details>
+<summary>3 - Public cible</summary>
+
+<br/>
 
 Cette série s’adresse à :
 
@@ -44,9 +98,18 @@ Cette série s’adresse à :
 * enseignants et formateurs préparant du contenu sur AWS
 * professionnels voulant automatiser leurs déploiements AWS
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Prérequis
+<a id="section-4"></a>
+
+<details>
+<summary>4 - Prérequis</summary>
+
+<br/>
 
 Avant de commencer, il est recommandé d’avoir :
 
@@ -59,15 +122,37 @@ Avant de commencer, il est recommandé d’avoir :
 
 Aucune expérience avancée en Infrastructure as Code n’est requise pour démarrer.
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Structure complète de la série
+<a id="section-5"></a>
 
-## Chapitre 1 — Introduction à AWS CloudFormation et concepts fondamentaux
+<details>
+<summary>5 - Structure complète de la série</summary>
+
+<br/>
+
+Cette série est composée de 15 chapitres progressifs, allant des bases absolues jusqu’à un projet final complet.
+
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
+---
+
+<a id="section-5a"></a>
+
+<details>
+<summary>5a - Chapitre 1 — Introduction à AWS CloudFormation et concepts fondamentaux</summary>
+
+<br/>
 
 Dans ce premier chapitre, l’apprenant découvre ce qu’est AWS CloudFormation, pourquoi ce service est important dans une approche Infrastructure as Code, et comment il permet de décrire une infrastructure AWS dans un template YAML ou JSON.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * définition de CloudFormation
 * notion de template
@@ -77,13 +162,22 @@ Contenu prévu :
 * premières notions de change set, drift detection et StackSets
 * premier exemple très simple avec un bucket S3
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 2 — Réseau de base avec VPC, Subnet, Internet Gateway et Security Group
+<a id="section-5b"></a>
+
+<details>
+<summary>5b - Chapitre 2 — Réseau de base avec VPC, Subnet, Internet Gateway et Security Group</summary>
+
+<br/>
 
 Ce chapitre introduit les ressources réseau essentielles dans AWS et montre comment les modéliser avec CloudFormation.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * définition d’un VPC
 * public subnet et private subnet
@@ -93,13 +187,22 @@ Contenu prévu :
 * architecture réseau minimale
 * premier template réseau complet
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 3 — Déployer une instance EC2 avec CloudFormation
+<a id="section-5c"></a>
+
+<details>
+<summary>5c - Chapitre 3 — Déployer une instance EC2 avec CloudFormation</summary>
+
+<br/>
 
 Ce chapitre montre comment créer une instance EC2 dans un réseau défini par CloudFormation.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * ressource `AWS::EC2::Instance`
 * AMI
@@ -110,13 +213,22 @@ Contenu prévu :
 * outputs utiles
 * premier déploiement EC2 complet
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 4 — Parameters, Outputs et fonctions intrinsèques
+<a id="section-5d"></a>
+
+<details>
+<summary>5d - Chapitre 4 — Parameters, Outputs et fonctions intrinsèques</summary>
+
+<br/>
 
 Ce chapitre explique comment rendre les templates réutilisables et dynamiques.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * section `Parameters`
 * section `Outputs`
@@ -126,13 +238,22 @@ Contenu prévu :
 * bonnes pratiques d’utilisation
 * templates paramétrables
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 5 — Conditions, Mappings et pseudo parameters
+<a id="section-5e"></a>
+
+<details>
+<summary>5e - Chapitre 5 — Conditions, Mappings et pseudo parameters</summary>
+
+<br/>
 
 Dans ce chapitre, l’apprenant apprend à introduire de la logique dans les templates.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * section `Mappings`
 * section `Conditions`
@@ -141,13 +262,22 @@ Contenu prévu :
 * adaptation selon région ou environnement
 * création conditionnelle de ressources
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 6 — S3 avec CloudFormation : buckets, versioning, outputs et protections
+<a id="section-5f"></a>
+
+<details>
+<summary>5f - Chapitre 6 — S3 avec CloudFormation : buckets, versioning, outputs et protections</summary>
+
+<br/>
 
 Ce chapitre approfondit la gestion des buckets S3 avec CloudFormation.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * création de bucket S3
 * nommage
@@ -158,13 +288,22 @@ Contenu prévu :
 * points d’attention sur la suppression
 * template S3 plus réaliste
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 7 — IAM Roles, Instance Profiles et permissions de base
+<a id="section-5g"></a>
+
+<details>
+<summary>5g - Chapitre 7 — IAM Roles, Instance Profiles et permissions de base</summary>
+
+<br/>
 
 Ce chapitre introduit les ressources IAM dans CloudFormation, avec prudence et structure.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * rôle IAM
 * policies
@@ -174,13 +313,22 @@ Contenu prévu :
 * principe du moindre privilège
 * exemple EC2 + IAM Role
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 8 — Déployer une base de données RDS avec CloudFormation
+<a id="section-5h"></a>
+
+<details>
+<summary>5h - Chapitre 8 — Déployer une base de données RDS avec CloudFormation</summary>
+
+<br/>
 
 Ce chapitre montre comment automatiser une base de données relationnelle.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * ressource RDS
 * subnet group
@@ -190,13 +338,22 @@ Contenu prévu :
 * précautions de suppression
 * architecture simple application + base de données
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 9 — Load Balancer et Auto Scaling
+<a id="section-5i"></a>
+
+<details>
+<summary>5i - Chapitre 9 — Load Balancer et Auto Scaling</summary>
+
+<br/>
 
 Ce chapitre fait passer la série vers une infrastructure plus proche d’un environnement professionnel.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * Application Load Balancer
 * Target Groups
@@ -206,13 +363,22 @@ Contenu prévu :
 * règles de sécurité
 * déploiement d’une architecture scalable
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 10 — Structurer les projets CloudFormation : organisation, modularité et nested stacks
+<a id="section-5j"></a>
+
+<details>
+<summary>5j - Chapitre 10 — Structurer les projets CloudFormation : organisation, modularité et nested stacks</summary>
+
+<br/>
 
 À ce stade, les templates deviennent plus grands. Ce chapitre apprend à organiser proprement les projets.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * découpage des templates
 * modularité
@@ -221,13 +387,22 @@ Contenu prévu :
 * logique de projet professionnel
 * maintenance et lisibilité
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 11 — Change Sets, Drift Detection et Stack Policies
+<a id="section-5k"></a>
+
+<details>
+<summary>5k - Chapitre 11 — Change Sets, Drift Detection et Stack Policies</summary>
+
+<br/>
 
 Ce chapitre est centré sur la sécurité opérationnelle et la maîtrise des changements.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * change sets
 * aperçu avant mise à jour
@@ -237,13 +412,22 @@ Contenu prévu :
 * prévention des erreurs de mise à jour
 * gestion plus sûre des stacks
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 12 — Bonnes pratiques, validation, debugging et troubleshooting
+<a id="section-5l"></a>
+
+<details>
+<summary>5l - Chapitre 12 — Bonnes pratiques, validation, debugging et troubleshooting</summary>
+
+<br/>
 
 Ce chapitre aide l’apprenant à devenir autonome face aux erreurs.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * erreurs fréquentes
 * lecture des événements CloudFormation
@@ -254,13 +438,22 @@ Contenu prévu :
 * conventions de nommage
 * recommandations AWS
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 13 — Intégrer CloudFormation dans une logique CI/CD
+<a id="section-5m"></a>
+
+<details>
+<summary>5m - Chapitre 13 — Intégrer CloudFormation dans une logique CI/CD</summary>
+
+<br/>
 
 Ce chapitre relie CloudFormation au DevOps moderne.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * CloudFormation dans un pipeline
 * déploiement automatisé
@@ -269,13 +462,22 @@ Contenu prévu :
 * logique de promotion dev / test / prod
 * place de CloudFormation dans une chaîne CI/CD
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 14 — CloudFormation vs AWS SAM vs AWS CDK
+<a id="section-5n"></a>
+
+<details>
+<summary>5n - Chapitre 14 — CloudFormation vs AWS SAM vs AWS CDK</summary>
+
+<br/>
 
 Ce chapitre ouvre vers les outils complémentaires de l’écosystème AWS.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * comparaison CloudFormation / SAM / CDK
 * cas d’usage de chaque outil
@@ -283,13 +485,22 @@ Contenu prévu :
 * comment CloudFormation reste la base commune
 * orientation pédagogique pour aller plus loin
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Chapitre 15 — Projet final complet
+<a id="section-5o"></a>
+
+<details>
+<summary>5o - Chapitre 15 — Projet final complet</summary>
+
+<br/>
 
 Le dernier chapitre sert de synthèse pratique.
 
-Contenu prévu :
+**Contenu prévu :**
 
 * réseau complet
 * instance EC2
@@ -300,9 +511,18 @@ Contenu prévu :
 * déploiement complet
 * lecture et vérification de l’infrastructure
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Progression pédagogique recommandée
+<a id="section-6"></a>
+
+<details>
+<summary>6 - Progression pédagogique recommandée</summary>
+
+<br/>
 
 La progression suit une logique de complexité croissante :
 
@@ -322,9 +542,18 @@ La progression suit une logique de complexité croissante :
 14. comparer avec les outils voisins
 15. réaliser un projet final complet
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Résultat attendu à la fin de la série
+<a id="section-7"></a>
+
+<details>
+<summary>7 - Résultat attendu à la fin de la série</summary>
+
+<br/>
 
 À la fin de cette série, l’apprenant pourra :
 
@@ -335,9 +564,18 @@ La progression suit une logique de complexité croissante :
 * utiliser CloudFormation dans une démarche professionnelle
 * préparer la suite vers des sujets plus avancés en IaC et DevOps
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Format recommandé pour chaque chapitre
+<a id="section-8"></a>
+
+<details>
+<summary>8 - Format recommandé pour chaque chapitre</summary>
+
+<br/>
 
 Pour garder une cohérence pédagogique, chaque chapitre peut suivre la structure suivante :
 
@@ -351,12 +589,23 @@ Pour garder une cohérence pédagogique, chaque chapitre peut suivre la structur
 * résumé des commandes
 * conclusion
 
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
+
 ---
 
-## Conclusion
+<a id="section-9"></a>
+
+<details>
+<summary>9 - Conclusion</summary>
+
+<br/>
 
 Cette série sur **AWS CloudFormation** est conçue comme un parcours complet, progressif et professionnalisant. Elle commence par les bases absolues, puis avance vers des déploiements plus structurés et plus proches des réalités du terrain.
 
 Le but n’est pas seulement de savoir écrire un template, mais de comprendre comment **penser une infrastructure AWS comme du code**, de manière propre, lisible, maintenable et réutilisable.
 
-Je peux maintenant te faire une **version README encore plus professionnelle**, avec style GitHub, sections repliables et sommaire propre.
+</details>
+
+<p align="right"><a href="#top">↑ Back to top</a></p>
